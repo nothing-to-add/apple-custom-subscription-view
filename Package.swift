@@ -18,7 +18,8 @@ let package = Package(
             targets: ["CustomSubscription"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/nothing-to-add/apple-custom-toast-manager.git", from: "1.0.0")
+        .package(url: "https://github.com/nothing-to-add/apple-custom-toast-manager.git", from: "1.0.0"),
+        .package(url: "https://github.com/nothing-to-add/apple-custom-logger.git", from: "1.0.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,7 +27,8 @@ let package = Package(
         .target(
             name: "CustomSubscription",
             dependencies: [
-                .product(name: "CustomToastManager", package: "apple-custom-toast-manager")
+                .product(name: "CustomToastManager", package: "apple-custom-toast-manager"),
+                .product(name: "CustomLogger", package: "apple-custom-logger")
             ]),
 
     ]
