@@ -175,7 +175,6 @@ The `configurePremiumStatusManager()` method performs several critical tasks:
 7. **🔔 Notification Setup**: Configures global premium status change notifications
 
 This robust setup ensures your app always has accurate subscription status information and can respond to changes automatically.
-```
 
 ### 3. Present the Subscription View
 
