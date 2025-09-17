@@ -85,19 +85,96 @@ struct MyApp: App {
             ContentView()
                 .environmentObject(premiumStatusManager)
                 .environmentObject(subscriptionManager)
-                .task {
-                    // Start subscription monitoring
-                    premiumStatusManager.startSubscriptionMonitoring(subscriptionManager: subscriptionManager)
-                    
-                    // Check current premium status
-                    await premiumStatusManager.checkPremiumStatus(subscriptionManager: subscriptionManager)
-                    
-                    // Schedule periodic checks
-                    premiumStatusManager.schedulePeriodicChecks(subscriptionManager: subscriptionManager)
+                .onAppear {
+                    configurePremiumStatusManager()
                 }
         }
     }
+    
+    private func configurePremiumStatusManager() {
+        // Connect the subscription manager to the premium status manager
+        subscriptionManager.connectToPremiumStatusManager(premiumStatusManager)
+        
+        // Load products and check initial status
+        Task {
+            await subscriptionManager.loadProducts()
+            await subscriptionManager.checkSubscriptionStatus()
+            await premiumStatusManager.checkPremiumStatus(subscriptionManager: subscriptionManager)
+        }
+        
+        // Start monitoring subscription changes (cancellations, renewals, etc.)
+        premiumStatusManager.startSubscriptionMonitoring(subscriptionManager: subscriptionManager)
+        
+        // Schedule periodic checks as a safety net
+        premiumStatusManager.schedulePeriodicChecks(subscriptionManager: subscriptionManager)
+        
+        // Monitor app lifecycle events for immediate premium status checks
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willEnterForegroundNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            // Check premium status when app comes to foreground
+            Task {
+                await premiumStatusManager.checkPremiumStatus(subscriptionManager: subscriptionManager)
+            }
+        }
+        
+        // Also check when app becomes active (handles cases like control center, notifications, etc.)
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.didBecomeActiveNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            Task {
+                await premiumStatusManager.checkPremiumStatus(subscriptionManager: subscriptionManager)
+            }
+        }
+        
+        // Set up premium status change notifications for your app
+        setupPremiumStatusNotifications()
+    }
+    
+    private func setupPremiumStatusNotifications() {
+        // Observe premium status changes throughout the app
+        NotificationCenter.default.addObserver(
+            forName: .premiumStatusDidChange,
+            object: nil,
+            queue: .main
+        ) { notification in
+            guard let userInfo = notification.userInfo,
+                  let isPremium = userInfo["isPremium"] as? Bool else {
+                return
+            }
+            
+            // Handle premium status changes globally
+            if isPremium {
+                print("✅ User upgraded to premium")
+                // You can add global premium activation logic here
+                // e.g., update UI themes, enable features, etc.
+            } else {
+                print("❌ User lost premium access")
+                // You can add global premium deactivation logic here
+                // e.g., disable premium features, show limitations, etc.
+            }
+        }
+    }
 }
+```
+
+#### Setup Process Explanation
+
+The `configurePremiumStatusManager()` method performs several critical tasks:
+
+1. **🔗 Manager Connection**: Links the subscription and premium status managers
+2. **📦 Product Loading**: Loads subscription products from App Store Connect
+3. **✅ Status Verification**: Checks current subscription status from StoreKit
+4. **🔄 Monitoring Setup**: Starts listening for subscription changes
+5. **⏰ Periodic Checks**: Schedules regular status verification
+6. **📱 Lifecycle Monitoring**: Checks status when app becomes active/foreground
+7. **🔔 Notification Setup**: Configures global premium status change notifications
+
+This robust setup ensures your app always has accurate subscription status information and can respond to changes automatically.
 ```
 
 ### 3. Present the Subscription View
@@ -190,9 +267,56 @@ struct PremiumFeatureView: View {
 
 ## 🔔 NotificationCenter Integration
 
-The package automatically posts notifications when the premium status changes. You can observe these notifications to update your UI or perform actions when the subscription status changes.
+The package automatically posts notifications when the premium status changes. The basic notification setup is included in the `configurePremiumStatusManager()` method above, but you can customize it for your specific needs.
 
-### Setting Up Notification Observers
+### Customizing Global Notification Handling
+
+You can modify the `setupPremiumStatusNotifications()` method to handle premium status changes globally:
+
+```swift
+private func setupPremiumStatusNotifications() {
+    // Observe premium status changes throughout the app
+    NotificationCenter.default.addObserver(
+        forName: .premiumStatusDidChange,
+        object: nil,
+        queue: .main
+    ) { notification in
+        guard let userInfo = notification.userInfo,
+              let isPremium = userInfo["isPremium"] as? Bool else {
+            return
+        }
+        
+        // Handle premium status changes globally
+        if isPremium {
+            print("✅ User upgraded to premium")
+            // Global premium activation logic
+            self.enablePremiumFeatures()
+            self.updateUIForPremiumUser()
+            self.trackPremiumActivation()
+        } else {
+            print("❌ User lost premium access")
+            // Global premium deactivation logic
+            self.disablePremiumFeatures()
+            self.updateUIForFreeUser()
+            self.trackPremiumDeactivation()
+        }
+    }
+}
+
+private func enablePremiumFeatures() {
+    // Enable premium functionality app-wide
+    // e.g., remove ads, unlock features, etc.
+}
+
+private func disablePremiumFeatures() {
+    // Disable premium functionality app-wide
+    // e.g., show ads, lock features, etc.
+}
+```
+
+### Local Notification Observers (for specific ViewControllers)
+
+If you need to observe premium status changes in specific ViewControllers or components, you can set up local observers:
 
 ```swift
 import CustomSubscription
