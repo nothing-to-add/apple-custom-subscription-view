@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "apple-custom-subscription-view",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v16),
         .macOS(.v13),
@@ -29,7 +30,15 @@ let package = Package(
             dependencies: [
                 .product(name: "CustomToastManager", package: "apple-custom-toast-manager"),
                 .product(name: "CustomLogger", package: "apple-custom-logger")
+            ],
+            resources: [
+                .process("Resources/en.lproj"),
+                .process("Resources/es.lproj")
             ]),
+            
+//            resources: [
+//                .process("Resources")
+//            ]),
 
     ]
 )

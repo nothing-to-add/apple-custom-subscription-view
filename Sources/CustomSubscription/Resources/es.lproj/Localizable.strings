@@ -1,0 +1,91 @@
+/* 
+  Localizable.strings
+  apple-custom-subscription-view
+  Spanish (es)
+
+  Created by maksims.laitans on 19/09/2025.
+  
+*/
+
+// Period strings
+"%d days" = "%d días";
+"%d weeks" = "%d semanas";
+"%d months" = "%d meses";
+"%d years" = "%d años";
+"period" = "período";
+
+// Navigation titles
+"Unlock Premium" = "Desbloquear Premium";
+"Premium" = "Premium";
+
+// Buttons
+"Skip" = "Omitir";
+"Close" = "Cerrar";
+"Start Free Trial" = "Iniciar Prueba Gratuita";
+"Processing..." = "Procesando...";
+"Continue with Free Version" = "Continuar con Versión Gratuita";
+"Terms of Service" = "Términos de Servicio";
+"Privacy Policy" = "Política de Privacidad";
+"Restore Purchases" = "Restaurar Compras";
+
+// Section titles
+"Premium Features" = "Características Premium";
+"Choose Your Plan" = "Elige Tu Plan";
+
+// Feature descriptions
+"Ad-Free Experience" = "Experiencia Sin Anuncios";
+"Enjoy the app without any advertisements" = "Disfruta la aplicación sin anuncios";
+"Premium Features" = "Características Premium";
+"Access to all premium functionality" = "Acceso a toda la funcionalidad premium";
+"Cloud Sync" = "Sincronización en la Nube";
+"Sync your data across all devices" = "Sincroniza tus datos en todos los dispositivos";
+
+// Pricing
+"POPULAR" = "POPULAR";
+"per month" = "por mes";
+
+// Other
+"You can always upgrade later in Settings" = "Siempre puedes actualizar más tarde en Configuración";
+"Share with loved ones" = "Comparte con tus seres queridos";
+
+// Toast messages
+"Premium features unlocked!" = "¡Funciones premium desbloqueadas!";
+"Premium subscription expired" = "La suscripción premium ha expirado";
+"Subscriptions require an app version in App Store review. Please submit your app for review first." = "Las suscripciones requieren que la versión de la app esté en la App Store. Primero, envía tu app para revisión.";
+"In-app purchases are not available in development mode." = "Las compras dentro de la aplicación no están disponibles en el modo de desarrollo.";
+"Subscription products are not configured in App Store Connect." = "Los productos de suscripción no están configurados en App Store Connect.";
+"Unlock exclusive features" = "Desbloquea características exclusivas";
+"Subscriptions not available in your region" = "Suscripciones no disponibles en tu región";
+"Network error loading subscriptions" = "Error de red al cargar suscripciones";
+"Failed to load subscription options" = "No se pudieron cargar las opciones de suscripción";
+"Purchase simulation (Development Mode)" = "Simulación de compra (Modo de desarrollo)";
+"Product not found" = "Producto no encontrado";
+"Premium subscription activated!" = "¡Suscripción Premium activada!";
+"Purchase verification failed" = "Verificación de compra fallida";
+"Purchase is pending approval" = "La compra está pendiente de aprobación";
+"Unknown purchase result" = "Resultado de compra desconocido";
+"Purchase failed: %d" = "Compra fallida: %d";
+"Premium subscription restored!" = "¡Suscripción Premium restaurada!";
+"No previous purchases found" = "No se encontraron compras anteriores";
+"Failed to restore purchases" = "No se pudieron restaurar las compras";
+"Upgrade to Premium" = "Actualizar a Premium";
+
+// Period
+"per period" = "por período";
+"per %d days" = "por %d dias";
+"per %d weeks" = "por %d semanas";
+"per %d months" = "por %d meses";
+"per %d years" = "por %d años";
+"Daily" = "A diario";
+"Weekly" = "Semanalmente";
+"Monthly" = "Mensual";
+"Annual" = "Anual";
+"Periodically" = "Periódicamente";
+"Save %d%" = "Guardar %d%";
+
+// SubscriptionView
+"%d-day free trial, then subscription pricing applies" = "Prueba gratuita de %d días, luego se aplica el precio de suscripción";
+"%1$d-day free trial, then %2$d" = "Prueba gratuita de %1$d días y luego %2$d";
+"%1$d-day free trial, then %2$d or %3$d" = "Prueba gratuita de %1$d días, luego %2$d o %3$d";
+"Cancel anytime • Share with family" = "Cancelar en cualquier momento • Compartir con la familia";
+"Auto-renewable subscription. Payment will be charged to your Apple ID account at confirmation of purchase. Subscription automatically renews unless canceled at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your App Store account settings." = "Suscripción autorenovable. El pago se cargará a tu cuenta de Apple ID al confirmar la compra. La suscripción se renueva automáticamente a menos que la canceles al menos 24 horas antes del final del periodo actual. El cargo por renovación se realizará en tu cuenta dentro de las 24 horas previas al final del periodo actual. Puedes gestionar y cancelar tus suscripciones desde la configuración de tu cuenta del App Store.";

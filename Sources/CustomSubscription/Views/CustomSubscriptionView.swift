@@ -101,17 +101,24 @@ public struct SubscriptionView: View {
                 }
                 .padding()
             }
-            .navigationTitle(isOnboardingFlow ? "Unlock Premium" : "Premium")
+            .navigationTitle(isOnboardingFlow ? 
+                Text("Unlock Premium", bundle: .module) : 
+                Text("Premium", bundle: .module)
+            )
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if isOnboardingFlow {
-                        Button("Skip") {
+                        Button {
                             onSkip?()
+                        } label: {
+                            Text("Skip", bundle: .module)
                         }
                     } else {
-                        Button("Close") {
+                        Button {
                             dismiss()
+                        } label: {
+                            Text("Close", bundle: .module)
                         }
                     }
                 }
@@ -154,7 +161,7 @@ public struct SubscriptionView: View {
     
     private var featuresList: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Premium Features")
+            Text("Premium Features", bundle: .module)
                 .font(.headline)
                 .padding(.horizontal)
             
@@ -170,7 +177,7 @@ public struct SubscriptionView: View {
     
     private var pricingSection: some View {
         VStack(spacing: 16) {
-            Text("Choose Your Plan")
+            Text("Choose Your Plan", bundle: .module)
                 .font(.headline)
             
             HStack(spacing: 12) {
@@ -212,9 +219,15 @@ public struct SubscriptionView: View {
                             .progressViewStyle(CircularProgressViewStyle(tint: .white))
                             .scaleEffect(0.8)
                     }
-                    Text(subscriptionManager.isLoading ? "Processing..." : "Start Free Trial")
-                        .font(.headline)
-                        .foregroundColor(.white)
+                    if subscriptionManager.isLoading {
+                        Text("Processing...", bundle: .module)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    } else {
+                        Text("Start Free Trial", bundle: .module)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -227,7 +240,7 @@ public struct SubscriptionView: View {
             Text(dynamicPricingText)
                 .captionText()
             
-            Text("Cancel anytime • Share with family")
+            Text("Cancel anytime • Share with family", bundle: .module)
                 .captionText()
         }
     }
@@ -237,7 +250,7 @@ public struct SubscriptionView: View {
             Button(action: {
                 onSkip?()
             }) {
-                Text("Continue with Free Version")
+                Text("Continue with Free Version", bundle: .module)
                     .font(.headline)
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity)
@@ -246,7 +259,7 @@ public struct SubscriptionView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             
-            Text("You can always upgrade later in Settings")
+            Text("You can always upgrade later in Settings", bundle: .module)
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -263,22 +276,28 @@ public struct SubscriptionView: View {
                 .padding(.horizontal)
             
             HStack(spacing: 20) {
-                Button("Terms of Service") {
+                Button {
                     showSafariForTerms = true
+                } label: {
+                    Text("Terms of Service", bundle: .module)
                 }
                 .font(.caption)
                 .foregroundColor(.blue)
                 
-                Button("Privacy Policy") {
+                Button {
                     showSafariForPrivacy = true
+                } label: {
+                    Text("Privacy Policy", bundle: .module)
                 }
                 .font(.caption)
                 .foregroundColor(.blue)
                 
-                Button("Restore Purchases") {
+                Button {
                     Task {
                         await subscriptionManager.restorePurchases()
                     }
+                } label: {
+                    Text("Restore Purchases", bundle: .module)
                 }
                 .font(.caption)
                 .foregroundColor(.blue)
@@ -347,4 +366,5 @@ public struct SubscriptionView: View {
         termsOfServiceURL: "https://example.com/terms",
         privacyPolicyURL: "https://example.com/privacy"
     ))
+    .environment(\.locale, .init(identifier: "es"))
 }

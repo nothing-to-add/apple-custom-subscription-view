@@ -1,0 +1,90 @@
+/* 
+  Localizable.strings
+  apple-custom-subscription-view
+
+  Created by maksims.laitans on 19/09/2025.
+  
+*/
+
+// Period strings
+"%d days" = "%d days";
+"%d weeks" = "%d weeks";
+"%d months" = "%d months";
+"%d years" = "%d years";
+"period" = "period";
+
+// Navigation titles
+"Unlock Premium" = "Unlock Premium";
+"Premium" = "Premium";
+
+// Buttons
+"Skip" = "Skip";
+"Close" = "Close";
+"Start Free Trial" = "Start Free Trial";
+"Processing..." = "Processing...";
+"Continue with Free Version" = "Continue with Free Version";
+"Terms of Service" = "Terms of Service";
+"Privacy Policy" = "Privacy Policy";
+"Restore Purchases" = "Restore Purchases";
+
+// Section titles
+"Premium Features" = "Premium Features";
+"Choose Your Plan" = "Choose Your Plan";
+
+// Feature descriptions
+"Ad-Free Experience" = "Ad-Free Experience";
+"Enjoy the app without any advertisements" = "Enjoy the app without any advertisements";
+"Premium Features" = "Premium Features";
+"Access to all premium functionality" = "Access to all premium functionality";
+"Cloud Sync" = "Cloud Sync";
+"Sync your data across all devices" = "Sync your data across all devices";
+
+// Pricing
+"POPULAR" = "POPULAR";
+"per month" = "per month";
+
+// Other
+"You can always upgrade later in Settings" = "You can always upgrade later in Settings";
+"Share with loved ones" = "Share with loved ones";
+
+// Toast messages
+"Premium features unlocked!" = "Premium features unlocked!";
+"Premium subscription expired" = "Premium subscription expired";
+"Subscriptions require an app version in App Store review. Please submit your app for review first." = "Subscriptions require an app version in App Store review. Please submit your app for review first.";
+"In-app purchases are not available in development mode." = "In-app purchases are not available in development mode.";
+"Subscription products are not configured in App Store Connect." = "Subscription products are not configured in App Store Connect.";
+"Unlock exclusive features" = "Unlock exclusive features";
+"Subscriptions not available in your region" = "Subscriptions not available in your region";
+"Network error loading subscriptions" = "Network error loading subscriptions";
+"Failed to load subscription options" = "Failed to load subscription options";
+"Purchase simulation (Development Mode)" = "Purchase simulation (Development Mode)";
+"Product not found" = "Product not found";
+"Premium subscription activated!" = "Premium subscription activated!";
+"Purchase verification failed" = "Purchase verification failed";
+"Purchase is pending approval" = "Purchase is pending approval";
+"Unknown purchase result" = "Unknown purchase result";
+"Purchase failed: %d" = "Purchase failed: %d";
+"Premium subscription restored!" = "Premium subscription restored!";
+"No previous purchases found" = "No previous purchases found";
+"Failed to restore purchases" = "Failed to restore purchases";
+"Upgrade to Premium" = "Upgrade to Premium";
+
+// Period
+"per period" = "per period";
+"per %d days" = "per %d days";
+"per %d weeks" = "per %d weeks";
+"per %d months" = "per %d months";
+"per %d years" = "per %d years";
+"Daily" = "Daily";
+"Weekly" = "Weekly";
+"Monthly" = "Monthly";
+"Annual" = "Annual";
+"Periodically" = "Periodically";
+"Save %d%" = "Save %d%";
+
+// SubscriptionView
+"%d-day free trial, then subscription pricing applies" = "%d-day free trial, then subscription pricing applies";
+"%1$d-day free trial, then %2$d" = "%1$d-day free trial, then %2$d";
+"%1$d-day free trial, then %2$d or %3$d" = "%1$d-day free trial, then %2$d or %3$d";
+"Cancel anytime • Share with family" = "Cancel anytime • Share with family";
+"Auto-renewable subscription. Payment will be charged to your Apple ID account at confirmation of purchase. Subscription automatically renews unless canceled at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your App Store account settings." = "Auto-renewable subscription. Payment will be charged to your Apple ID account at confirmation of purchase. Subscription automatically renews unless canceled at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your App Store account settings.";

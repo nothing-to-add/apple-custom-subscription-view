@@ -30,7 +30,7 @@ public struct PricingCardView: View {
     public var body: some View {
         VStack(spacing: 8) {
             if isPopular {
-                Text("POPULAR")
+                Text("POPULAR", bundle: .module)
                     .font(.caption)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
