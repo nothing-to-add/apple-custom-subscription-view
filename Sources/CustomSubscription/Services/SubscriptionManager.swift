@@ -11,7 +11,9 @@
 import Foundation
 import StoreKit
 import SwiftUI
+#if canImport(UIKit)
 import UIKit
+#endif
 import CustomToastManager
 import CustomLogger
 

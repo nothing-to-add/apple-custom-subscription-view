@@ -7,7 +7,7 @@ let package = Package(
     name: "apple-custom-subscription-view",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v16),
+        .iOS(.v17),
         .macOS(.v13),
         .watchOS(.v9),
         .visionOS(.v1)
@@ -32,13 +32,8 @@ let package = Package(
                 .product(name: "CustomLogger", package: "apple-custom-logger")
             ],
             resources: [
-                .process("Resources/en.lproj"),
-                .process("Resources/es.lproj")
+                .process("Resources")
             ]),
-            
-//            resources: [
-//                .process("Resources")
-//            ]),
 
     ]
 )
