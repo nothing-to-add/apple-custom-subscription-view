@@ -175,7 +175,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%1$lld-day free trial, then %2$@"
           }
         },

@@ -56,14 +56,14 @@ public class SubscriptionManager: ObservableObject {
     public let headerTitle: LocalizedStringResource
     public let headerSubtitle: LocalizedStringResource
     
-    public init(productIds: [String], premiumFeatures: [PremiumFeature], trialPeriodDays: Int, termsOfServiceURL: String, privacyPolicyURL: String, headerTitle: LocalizedStringResource = "Upgrade to Premium", headerSubtitle: LocalizedStringResource = "Unlock exclusive features") {
+    public init(productIds: [String], premiumFeatures: [PremiumFeature], trialPeriodDays: Int, termsOfServiceURL: String, privacyPolicyURL: String, headerTitle: LocalizedStringResource? = nil, headerSubtitle: LocalizedStringResource? = nil) {
         self.productIds = productIds
         self.premiumFeatures = premiumFeatures
         self.trialPeriodDays = trialPeriodDays
         self.termsOfServiceURL = termsOfServiceURL
         self.privacyPolicyURL = privacyPolicyURL
-        self.headerTitle = headerTitle
-        self.headerSubtitle = headerSubtitle
+        self.headerTitle = headerTitle ?? LocalizedStringResource("Upgrade to Premium", bundle: .module)
+        self.headerSubtitle = headerSubtitle ?? LocalizedStringResource("Unlock exclusive features", bundle: .module)
         
         // Check if StoreKit is available (not in development simulator without proper setup)
         checkStoreKitAvailability()
